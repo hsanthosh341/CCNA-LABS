@@ -1,0 +1,39 @@
+It is a basic router configuration with two interface
+The router connects to two switches. Each switch connects two PCs. The router provides the default gateway for each LAN and forwards traffic between them
+Devices:
+1 x router
+2 x switch 
+4 x PCs
+Networks:
+LAN1 – 192.168.1.0 / 24
+LAN2 – 192.168.2.0 / 24
+
+Router Configuration:
+
+enable
+configure terminal
+
+interface FastEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+interface FastEthernet0/1
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+
+PCs Configuration:
+PC0 – 192.168.1.2   255.255.255.0
+PC1 – 192.168.1.3   255.255.255.0
+PC2 – 192.168.2.2   255.255.255.0
+PC3 – 192.168.2.3   255.255.255.0
+
+Testing :
+Ping PC0 to PC1 to check communication between PCs in LAN 1
+Ping PC2 to PC3 to check communication between PCs in LAN 2
+Ping PC1 to PC3 to check communication between the two LANs through the router.
+
+
+
+
